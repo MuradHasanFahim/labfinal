@@ -72,4 +72,10 @@ class GUIFactory {
                         return std::make_unique<LinuxScrollbar>();
                     }
                 };
-                           
+                void renderGUI(const GUIFactory& factory) {
+                    auto window = factory.createWindow();
+                    auto scrollbar = factory.createScrollbar();
+                
+                    window->render();
+                    scrollbar->render();
+                }                         
