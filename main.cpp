@@ -79,3 +79,14 @@ class GUIFactory {
                     window->render();
                     scrollbar->render();
                 }                         
+                int main() {
+                    std::cout << "Using Windows GUI:" << std::endl;
+                    WindowsFactory windowsFactory;
+                    renderGUI(windowsFactory);
+                
+                    std::cout << "\nUsing Linux GUI:" << std::endl;
+                    LinuxFactory linuxFactory;
+                    renderGUI(linuxFactory);
+                
+                    return 0;
+                }               
