@@ -52,3 +52,14 @@ class GUIFactory {
             virtual std::unique_ptr<Scrollbar> createScrollbar() const = 0;
             virtual ~GUIFactory() = default;
         };
+        class WindowsFactory : public GUIFactory {
+            public:
+                std::unique_ptr<Window> createWindow() const override {
+                    return std::make_unique<WindowsWindow>();
+                }
+            
+                std::unique_ptr<Scrollbar> createScrollbar() const override {
+                    return std::make_unique<WindowsScrollbar>();
+                }
+            };
+            
