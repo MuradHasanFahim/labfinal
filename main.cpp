@@ -62,4 +62,14 @@ class GUIFactory {
                     return std::make_unique<WindowsScrollbar>();
                 }
             };
-            
+            class LinuxFactory : public GUIFactory {
+                public:
+                    std::unique_ptr<Window> createWindow() const override {
+                        return std::make_unique<LinuxWindow>();
+                    }
+                
+                    std::unique_ptr<Scrollbar> createScrollbar() const override {
+                        return std::make_unique<LinuxScrollbar>();
+                    }
+                };
+                           
