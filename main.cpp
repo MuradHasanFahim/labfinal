@@ -38,4 +38,17 @@ class WindowsScrollbar : public Scrollbar {
         }
     };
 
-    
+class LinuxScrollbar : public Scrollbar {
+        public:
+            void render() const override {
+                std::cout << "Rendering Linux Scrollbar" << std::endl;
+            }
+        };
+        
+        // Abstract Factory Interface
+class GUIFactory {
+        public:
+            virtual std::unique_ptr<Window> createWindow() const = 0;
+            virtual std::unique_ptr<Scrollbar> createScrollbar() const = 0;
+            virtual ~GUIFactory() = default;
+        };
